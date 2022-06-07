@@ -2,14 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
+    const navList = <>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/'>Users</Link></li>
+        <li><Link to='/'>About</Link></li>
+    </>
     return (
-        <div className='font-serif text-white bg-gray-700 py-4'>
-            <div className='w-3/4 flex items-center justify-between mx-auto'>
-                <h1 className='text-5xl font-bold '>Logo</h1>
-                <div className='flex text-xl'>
-                    <Link className='mx-2 px-2 hover:text-gray-200' to='/'>Home</Link>
-                    <Link className='mx-2 px-2 hover:text-gray-200' to='/'>About </Link>
-                    <Link className='mx-2 px-2 hover:text-gray-200' to='/'>Users</Link>
+        <div className="">
+            <div class="navbar bg-base-100 lg:justify-center font-serif ">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <label tabindex="0" class="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                        </label>
+                        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                            {navList}
+                        </ul>
+                    </div>
+                    <Link to='/' class="btn btn-ghost normal-case text-4xl ">LOGO</Link>
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                    <ul class="menu menu-horizontal p-0 text-xl ">
+                        {navList}
+                    </ul>
                 </div>
             </div>
         </div>
