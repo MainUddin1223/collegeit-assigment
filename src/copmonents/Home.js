@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import useUser from './Hooks/useUser';
 import Users from './Users';
 
-const Home = ({users}) => {
+const Home = ({usersWithId}) => {
+    console.log(usersWithId);
     // const [users, setUsers] = useState([])
 
     // useEffect(() => {
@@ -26,8 +28,9 @@ const Home = ({users}) => {
                         </tr>
                     </thead>
                     <tbody>
+                   
                {
-                 users&&  users.map((user,index)=><Users key={user.cell} index={index} user={user}></Users>)
+                 usersWithId&&  usersWithId.map((user,index)=><Users key={user.cell} index={index} user={user}></Users>)
                }
 
                     </tbody>

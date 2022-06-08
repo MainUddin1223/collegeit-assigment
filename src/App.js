@@ -6,13 +6,13 @@ import useUser from './copmonents/Hooks/useUser';
 import User from './copmonents/User';
 
 function App() {
-  const [users]=useUser()
+  const [usersWithId]=useUser()
   return (
     <div className="App">
       <Header></Header>
       <Routes>
-        <Route path='/' element={<Home users={users}></Home>}></Route>
-        <Route path='/user/:email' element={<User users={users}></User>}></Route>
+        <Route path='/' element={<Home usersWithId={usersWithId}></Home>}></Route>
+        <Route path='/user/:userId' element={<User usersWithId={usersWithId}></User>}></Route>
       </Routes>
     </div>
   );

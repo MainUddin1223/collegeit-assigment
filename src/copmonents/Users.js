@@ -1,14 +1,20 @@
 import React from 'react';
-import { Link} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 
 const Users = ({ user, index }) => {
-    const { name, gender, location, email } = user;
+    const navigate=useNavigate()
+    const { name, gender, location, email,userId } = user;
     const { city, state, country } = location;
     const fullName = `${name.title} ${name.first} ${name.last}`
 
+const handleUserInfo=()=>{
+    navigate(`/user/${userId}`)
+}
+
     return (
-        <Link to={`/user/${email}`} >
-            <tr class="hover" >
+  
+            <tr class="hover" onClick={handleUserInfo}>
+                   
                 <th>{index + 1}</th>
                 <td>{fullName}</td>
                 <td>{gender} </td>
@@ -16,7 +22,7 @@ const Users = ({ user, index }) => {
                 <td>{state}</td>
                 <td>{country}</td>
             </tr>
-        </Link>
+      
     );
 };
 
