@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import Spinner from './Spinner';
 
 const User = ({ usersWithId }) => {
     const { userId } = useParams();
@@ -31,7 +32,7 @@ const User = ({ usersWithId }) => {
 
 
     if (userDetail[0] === undefined || birthday === undefined) {
-        return <h1>Loading</h1>
+        return <Spinner></Spinner>
     }
     return (
         <div className='md:w-3/4 md:mx-auto m-8 min-h-screen'>
