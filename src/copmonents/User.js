@@ -6,8 +6,10 @@ const User = ({ usersWithId }) => {
 
     const userDetail = usersWithId.filter(user => user?.userId === parseInt(userId));
     const userInfo = userDetail[0]
+    console.log(userInfo);
     const email = userInfo?.email
     const dob = userInfo?.dob
+    const age = dob?.age
     const picture = userInfo?.picture
     const name = userInfo?.name;
     const phone = userInfo?.phone
@@ -16,10 +18,11 @@ const User = ({ usersWithId }) => {
     const birthday = dateOfBirth?.split('-')
     let daysLeft
     if (dateOfBirth) {
+        const birthYear = parseInt(birthday[0]);
         const birthMonth = parseInt(birthday[1]);
         const date = parseInt(birthday[2])
         const today = new Date();
-        let bDay = new Date(today.getFullYear(),birthMonth-1,date );
+        let bDay = new Date(today.getFullYear(), birthMonth - 1, date);
         if (today.getTime() > bDay.getTime()) {
             bDay.setFullYear(bDay.getFullYear() + 1)
         }
@@ -33,13 +36,14 @@ const User = ({ usersWithId }) => {
     }
     return (
         <div className='md:w-3/4 md:mx-auto m-8 min-h-screen'>
-            <div className='flex items-center'>
-                <img src={picture?.large} alt="" className='w-64' />
-                <div className='mx-4'>
-                    <h1>{fullName}</h1>
-                    <p>{phone}</p>
-                    <p> {email}</p>
-                    <p>{dateOfBirth}</p>
+            <div className='md:flex w-full  lg:w-3/4 mx-auto shadow-lg  '>
+                <img src={picture?.large} alt="" className='w-64 m-4' />
+                <div className='m-4 pb-4'>
+                    <h1 className='my-2 text-3xl font-serif font-bold '>{fullName}</h1>
+                    <p className='text-xl'>Phone : {phone}</p>
+                    <p className='text-xl'>Email : {email}</p>
+                    <p className='text-xl'>DOB : {dateOfBirth}</p>
+                    <p className='text-xl'><span className='font-bold'>{daysLeft}</span> days left to turn into {age + 1}</p>
                 </div>
             </div>
 

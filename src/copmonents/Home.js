@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import useUser from './Hooks/useUser';
 import Users from './Users';
 
-const Home = ({usersWithId}) => {
+const Home = ({ usersWithId }) => {
     console.log(usersWithId);
     // const [users, setUsers] = useState([])
 
@@ -15,8 +15,8 @@ const Home = ({usersWithId}) => {
     // const [users]=useUser()
     return (
         <div className=''>
-            <div class="overflow-x-auto">
-                <table class="table w-3/4 mx-auto" >
+            <div className="overflow-x-auto">
+                <table className="table w-3/4 mx-auto" >
                     <thead>
                         <tr>
                             <th>No</th>
@@ -28,15 +28,15 @@ const Home = ({usersWithId}) => {
                         </tr>
                     </thead>
                     <tbody>
-                   
-               {
-                 usersWithId&&  usersWithId.map((user,index)=><Users key={user.cell} index={index} user={user}></Users>)
-               }
+
+                        {
+                            usersWithId && usersWithId.map((user, index) => <Users key={user.cell} index={index} user={user}></Users>)
+                        }
 
                     </tbody>
                 </table>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
