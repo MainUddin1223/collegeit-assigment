@@ -6,7 +6,6 @@ const User = ({ usersWithId }) => {
 
     const userDetail = usersWithId.filter(user => user?.userId === parseInt(userId));
     const userInfo = userDetail[0]
-    console.log(userInfo);
     const email = userInfo?.email
     const dob = userInfo?.dob
     const age = dob?.age

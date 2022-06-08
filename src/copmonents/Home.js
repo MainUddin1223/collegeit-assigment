@@ -1,18 +1,8 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import useUser from './Hooks/useUser';
+
+import React from 'react';
 import Users from './Users';
 
 const Home = ({ usersWithId }) => {
-    console.log(usersWithId);
-    // const [users, setUsers] = useState([])
-
-    // useEffect(() => {
-    //     axios.get('https://randomuser.me/api/?results=10').then(res => setUsers(res.data.results))
-    // }, [])
-    // console.log(users);
-    // const [users]=useUser()
     return (
         <div className=''>
             <div className="overflow-x-auto">
